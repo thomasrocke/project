@@ -2,9 +2,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <?php
 
+try {
+    $conn = new PDO("sqlsrv:server = tcp:cyberclipsql.database.windows.net,1433; Database = Cyberclip", "cyberclipadmin", "Dbz2Z6VpCqwkj6v");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+}
+catch (PDOException $e) {
+    print("Error connecting to SQL Server.");
+    die(print_r($e));
+}
 
-$conn = mysqli_connect("localhost","root","");
-$db = mysqli_select_db($conn, 'filtering database');
+// SQL Server Extension Sample Code:
+$connectionInfo = array("UID" => "cyberclipadmin", "pwd" => "Dbz2Z6VpCqwkj6v", "Database" => "Cyberclip", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:cyberclipsql.database.windows.net,1433";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
 
 if(isset($_POST['insert']))
 {
@@ -12,7 +22,7 @@ if(isset($_POST['insert']))
     $FilterINT = filter_var($FilterINT, FILTER_VALIDATE_URL);
 
     $query = "INSERT INTO filteret(`FilterINT`) VALUES ('$FilterINT')";
-    $query_run = mysqli_query($conn, $query);
+    $query_run = sqlsrv_query($conn, $query);
 
     if($query_run)
     {
