@@ -1,0 +1,25 @@
+li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+  }
+
+li a:hover {
+    background-color: silver;
+  }
+  
+
+body {
+    font-family: Verdana, Arial, Helvetica, monospace;  
+    background-color: black;  
+    }
+    h1 {
+      font-size: 50px;  
+      color:black;
+    }
+    p {
+      font-size: 20px; 
+      color: black;
+    }
+
+    
