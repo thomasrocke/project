@@ -10,13 +10,15 @@
 </head>
 <body>
     <?php
-    $connection = mysqli_connect("localhost","root","");
-    $db = mysqli_select_db($connection, 'filtering database');
+
+$conn = mysqli_connect("localhost","root","","");
+$db = mysqli_select_db($conn, 'filtering database');
+ 
 
     $id = $_POST['id'];
 
     $query = "SELECT * FROM filteret WHERE id='$id' ";
-    $query_run = mysqli_query($connection, $query);
+    $query_run = mysqli_query($conn, $query);
 
     if($query_run)
     {

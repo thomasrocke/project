@@ -22,7 +22,7 @@ if(isset($_POST['insert']))
     $FilterINT = filter_var($FilterINT, FILTER_VALIDATE_URL);
 
     $query = "INSERT INTO filteret(`FilterINT`) VALUES ('$FilterINT')";
-    $query_run = sqlsrv_query($conn, $query);
+    $query_run = mysqli_query($conn, $query);
 
     if($query_run)
     {

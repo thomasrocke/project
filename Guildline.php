@@ -28,12 +28,11 @@
   <body>
     <h1>Guideline</h1>
   <p>this page will have the adding of the guideline of the company</p>
-    <form name = "form1" action="modified.php" method = "post" enctype = "multipart/form-data" >    
-      <div class = "container">    
-          <div class = "form_group">    
-              <label>label:</label>    
-              <input type = "text" name = "fname" value = "" required/>    
-              <input type="submit" value="Submit">
+      <form action="upload.php" method="post" enctype="multipart/form-data">
+      Select image to file to upload:
+        <input type="file" name="file" id="file">
+          <input type="submit"  value = "upload">
+        </form>
           </div>     
       </div>      
   </form>  

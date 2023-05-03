@@ -44,8 +44,8 @@
             </div>
 
             <?php
-                $conn = mysqli_connect("localhost","root","","");
-                $db = mysqli_select_db($conn, 'filtering database');
+               $conn = mysqli_connect("localhost","root","","");
+               $db = mysqli_select_db($conn, 'filtering database');
 
                 $query = "SELECT * FROM filteret";
                 $query_run = mysqli_query($conn, $query);
