@@ -2,19 +2,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <?php
 
-try {
-    $conn = new PDO("sqlsrv:server = tcp:cyberclipsql.database.windows.net,1433; Database = Cyberclip", "cyberclipadmin", "Dbz2Z6VpCqwkj6v");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-}
-catch (PDOException $e) {
-    print("Error connecting to SQL Server.");
-    die(print_r($e));
-}
-
-// SQL Server Extension Sample Code:
-$connectionInfo = array("UID" => "cyberclipadmin", "pwd" => "Dbz2Z6VpCqwkj6v", "Database" => "Cyberclip", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-$serverName = "tcp:cyberclipsql.database.windows.net,1433";
-$conn = sqlsrv_connect($serverName, $connectionInfo);
+$conn = mysqli_connect("localhost","root","","");
+$db = mysqli_select_db($conn, 'filtering database');
+ 
 
 if(isset($_POST['insert']))
 {
