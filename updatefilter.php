@@ -53,7 +53,7 @@ $db = mysqli_select_db($conn, 'filtering database');
                     
 
                         $query = "UPDATE filteret SET FilterINT='$FilterINT'WHERE id='$id'  ";
-                        $query_run = mysqli_query($connection, $query);
+                        $query_run = mysqli_query($conn, $query);
 
                         if($query_run)
                         {
